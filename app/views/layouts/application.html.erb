@@ -1,14 +1,33 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>WantedSkills</title>
-    <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-
-  <body>
+<head>
+  <title>WantedSkills</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <header class="navbar">
+    <div class="container">
+      <div id="logo">WantedSkills</div>
+      <ul class="header-right">
+        <li><%= link_to "トップ", root_path %></li>
+        <li><%= link_to "新規スキル", new_skill_path %></li>
+        <li><%= link_to "スキル一覧", skills_path %></li>
+      </ul>
+    </div>
+  </header>
+  
+  <div class="container">
     <%= yield %>
-  </body>
+  </div>
+
+  <div class="container">
+    <footer class="footer">
+      <div class="small">
+        &copy; 2017 @tsukukobaan.
+      </div>
+    </footer>
+  </div>
+</body>
 </html>

@@ -1,3 +1,48 @@
-// Place all the styles related to the Skills controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+/* スキル一覧 ================================ */
+.skills {
+  margin: 0;
+  float: left;
+  width: 60%;
+}
+
+.skills li {
+  overflow: auto;
+  padding: 14px 0;
+  border-bottom: 1px solid #eaeaea;
+}
+
+/* スキル ================================ */
+.skills .title, .skills .content {
+  display: block;
+}
+
+.skills .title {
+  padding-top: 8px;
+}
+.skills img {
+  display: inline-block;
+  margin-right: 12px;
+  float: left;
+  width: 56px;
+  height: 56px;
+}
+
+aside textarea {
+  height: 120px;
+  margin-bottom: 5px;
+  font-size: 14px;
+  padding-left: 5px;
+}
+
+/* 投稿フォーム ================================ */
+
+.user-id-field {
+  width: 100%;
+}
+.title-field{
+  width: 97.2%;
+}
+.content-field {
+  height: 90px;
+  width: 97.2%;
+}
