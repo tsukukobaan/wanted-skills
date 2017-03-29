@@ -1,6 +1,2 @@
 <h1>スキルを追加する</h1>
-<%= form_tag skills_path do %>
-  スキル
-  <input type="text" name="title" class="form-control title-field">
-  <input type="submit" value="追加する" class="btn primary-btn">
-<% end %>
+<%= render 'form' %>

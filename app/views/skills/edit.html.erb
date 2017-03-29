@@ -1,7 +1,2 @@
 <h1>スキルを編集する</h1>
-<!-- formタグへのパスを書き直してください -->
-<%= form_tag skill_path(@skill.id), method: 'patch' do %>
-  スキル
-  <%= text_field_tag :title, @skill.title, class: "form-control title-field" %>
-  <%= submit_tag "保存", class: "btn primary-btn" %>
-<% end %>
+<%= render 'form' %>

@@ -1,22 +1,17 @@
-<%= form_for(skill) do |f| %>
-  <% if skill.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(skill.errors.count, "error") %> prohibited this skill from being saved:</h2>
+<%= form_for(@skill) do |f| %>
+  <% if @skill.errors.any? %>
+    <div id="error_explanation" class="alert alert-danger">
+      <h2><%= @skill.errors.count %>件のエラーがあります。</h2>
 
       <ul>
-      <% skill.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% @skill.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  タイトル
+  <%= f.text_field :title, { class: "form-control title-field" } %>
+  <%= f.submit "保存", { class: "btn primary-btn" } %>
 <% end %>
