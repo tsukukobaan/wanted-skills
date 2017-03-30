@@ -17,11 +17,13 @@ class SkillsController < ApplicationController
 
   def create
     @skill = Skill.new(skill_params)
+    #@user = User.find(params[:id])
     #@skill.user_id = @user.id
     if @skill.save
       redirect_to @skill, notice:'スキルが保存されました'
     else
-      render :new
+      @skills = Skill.all.order(created_at: :desc)
+      render 'home/top'
     end
   end
 
@@ -48,6 +50,7 @@ class SkillsController < ApplicationController
     
     def skill_params
       params.require(:skill).permit(:title,:user_id)
+      #最後に:user_id
     end
     
     def correct_user
@@ -56,6 +59,4 @@ class SkillsController < ApplicationController
         redirect_to root_path, alert: '許可されていないページです'
       end
     end
-    
-
 end
