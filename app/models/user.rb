@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :validatable
   has_many :skills
-  validates :name,presence:true
+  #validates :name,presence:true
   validates :email,presence:true,uniqueness:true
   
   def set_image(file)

@@ -4,6 +4,9 @@
 <h2>スキル</h2>
 <p><%= @skill.title %></p>
 
-<%= link_to "編集", edit_skill_path(@skill.id), class: "btn edit-btn" %>
-<!-- destroyアクションへのパスを書き直してください -->
-<%= link_to "削除", skill_path(@skill.id), method: "delete", class: "btn destroy-btn", "data-confirm" => "本当に削除しますか？" %>
+
+<% if current_user?(@skill.user) %>
+  <%= link_to "編集", edit_skill_path(@skill.id), class: "btn edit-btn" %>
+  
+  <%= link_to "削除", skill_path(@skill.id), method: "delete", class: "btn destroy-btn", "data-confirm" => "本当に削除しますか？" %>
+<% end %>

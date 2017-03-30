@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  
+  before_action :correct_user, only:[:edit, :update]
+  before_action :authenticate_user!
+  before_action :set_user, only: [:show, :edit, :update]
+
 
   # GET /users
   # GET /users.json
@@ -13,10 +17,10 @@ class UsersController < ApplicationController
     @skills = @user.skills
   end
 
-  # GET /users/new
-  def new
-    @user = User.new
-  end
+  # # GET /users/new
+  # def new
+  #   @user = User.new
+  # end
 
   # GET /users/1/edit
   def edit
@@ -24,19 +28,19 @@ class UsersController < ApplicationController
 
   # POST /users
   # POST /users.json
-  def create
-    @user = User.new(user_params)
+  # def create
+  #   @user = User.new(user_params)
 
-    file = params[:user][:image]
+  #   file = params[:user][:image]
     
-    @user.set_image(file)
+  #   @user.set_image(file)
     
-    if @user.save
-      redirect_to @user, notice: 'ユーザーが保存されました'
-    else
-      render :new
-    end
-  end
+  #   if @user.save
+  #     redirect_to @user, notice: 'ユーザーが保存されました'
+  #   else
+  #     render :new
+  #   end
+  # end
 
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
@@ -75,4 +79,13 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:name, :email)
     end
+    
+    def correct_user
+      user = User.find(params[:id])
+      if current_user.id != user.id
+        redirect_to root_path, alert: "prohibited pages"
+      end
+    end
+    
+
 end

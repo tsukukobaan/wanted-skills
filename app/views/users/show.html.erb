@@ -17,10 +17,17 @@
     <span class="label">メールアドレス</span>
     <h3 class="user-info"><%= @user.email %></h3>
   </section>
-
+  
   <section>
-    <small><%= link_to 'プロフィールを編集', edit_user_path(@user) %></small>
+    <span class="label">ID</span>
+    <h3 class="user-info"><%= @user.id %></h3>
   </section>
+
+  <% if current_user?(@user) %>
+    <section>
+      <small><%= link_to 'プロフィールを編集', edit_user_path(@user) %></small>
+    </section>
+  <% end %>
 
 </aside>
 
