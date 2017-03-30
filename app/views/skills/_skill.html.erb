@@ -5,5 +5,11 @@
     </span>
     <span class="content">
         <%= link_to skill.title, skill_path(skill.id) %>
+        <div>
+          <small>
+            <!-- 投稿がいいね！されている数を表示してください -->
+            <%= @skill.likes.count %>人がいいね！といっています
+          </small>
+        </div>
     </span>
 </li>

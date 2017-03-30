@@ -1,7 +1,7 @@
 class SkillsController < ApplicationController
   
   before_action :authenticate_user!
-  before_action :set_skill, only:[:show,:edit,:update,:destroy]
+  before_action :set_skill, only: [:show,:edit,:update,:destroy,:liking_users]
   before_action :correct_user, only: [:edit, :update]
   
   def index
@@ -40,7 +40,11 @@ class SkillsController < ApplicationController
 
   def destroy
     @skill.destroy
-    redirect_to skills_path
+    redirect_to root_path
+  end
+  
+  def liking_users
+    @users = @skill.liking_users
   end
   
   private

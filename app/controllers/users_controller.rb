@@ -1,28 +1,26 @@
 class UsersController < ApplicationController
   
-  before_action :correct_user, only:[:edit, :update]
   before_action :authenticate_user!
-  before_action :set_user, only: [:show, :edit, :update]
+  before_action :correct_user, only: [:edit, :update]
+  before_action :set_user, only: [:show, :edit, :update, :like_skills]
 
 
-  # GET /users
-  # GET /users.json
   def index
     @users = User.all
   end
 
-  # GET /users/1
-  # GET /users/1.json
+
   def show
     @skills = @user.skills
+    @title = "スキル一覧"
   end
 
-  # # GET /users/new
+
   # def new
   #   @user = User.new
   # end
 
-  # GET /users/1/edit
+
   def edit
   end
 
@@ -42,8 +40,8 @@ class UsersController < ApplicationController
   #   end
   # end
 
-  # PATCH/PUT /users/1
-  # PATCH/PUT /users/1.json
+
+
   def update
     file = params[:user][:image]
 
@@ -55,6 +53,14 @@ class UsersController < ApplicationController
     else
       render :edit
     end
+  end
+  
+  def like_skills
+    @skills = @user.like_skills
+    @title = "いいね！一覧"
+    
+    # showアクションをrenderしてください
+    render :show
   end
 
   # DELETE /users/1
