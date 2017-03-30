@@ -1,11 +1,4 @@
 <h1>スキルの一覧</h1>
 <ul class="skills">
-  <% @skills.each do |skill| %>
-    <li>
-      <p>スキル</p>
-      <span class="content">
-        <%= link_to skill.title, skill_path(skill.id) %>
-      </span>
-    </li>
-  <% end %>
+  <%= render @skills %>
 </ul>

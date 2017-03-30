@@ -44,7 +44,7 @@ class SkillsController < ApplicationController
     end
     
     def skill_params
-      params.require(:skill).permit(:title)
+      params.require(:skill).permit(:title, :user_id)
     end
   
 end

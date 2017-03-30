@@ -1,0 +1,9 @@
+<li>
+    <%= image_for(skill.user) %>
+    <span class="user-name">
+        <%= skill.user.name %>
+    </span>
+    <span class="content">
+        <%= link_to skill.title, skill_path(skill.id) %>
+    </span>
+</li>
