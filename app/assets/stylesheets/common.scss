@@ -6,6 +6,7 @@ body {
 
 ul, li {
   list-style-type: none;
+  padding: 0;
 }
 
 a {
@@ -28,10 +29,6 @@ a:hover {
 
 .heading {
   display: inline-block;
-}
-
-.title-logo {
-  color: white;
 }
 
 /* フォント
@@ -62,7 +59,7 @@ p {
 .navbar {
   height: 65px;
   width: 100%;
-  background-color: rgba(34, 49, 52, 0.9);
+  background-color: rgba(0,168,191,0.9);
   top: 0;
   right: 0;
   left: 0;
@@ -73,13 +70,16 @@ p {
 #logo {
   float: left;
   font-size: 1.7em;
-  color: #fff;
   padding-top: 12px;
   letter-spacing: -1px;
   font-weight: bold;
 }
 
-#logo:hover {
+#logo a {
+  color: #fff;
+}
+
+#logo a:hover {
   color: #fff;
   text-decoration: none;
 }
@@ -115,7 +115,7 @@ p {
 }
 
 .link-bg:hover {
-  background-color: rgba(0, 168, 191, 0.9);
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 /* フッター ================================ */
@@ -142,6 +142,11 @@ footer small {
   cursor: pointer;
 }
 
+.btn-large {
+  padding: 6px 140px;
+  font-size: 18px;
+}
+      
 /* 「保存」ボタン */
 .primary-btn {
   background-color: #239b76;
@@ -151,12 +156,13 @@ footer small {
   background-color: #28b086;
 }
 
-/*　「編集」ボタン　*/
-.edit-btn {
+/*　「新規登録」と「編集」ボタン　*/
+.register-btn, .edit-btn {
   background-color: #239b76;
+  margin-top:30px;
 }
 
-.edit-btn:hover {
+.register-btn:hover,.edit-btn:hover {
   background-color: #28b086;
   color: white;
   text-decoration: none;
@@ -183,7 +189,7 @@ input, textarea, select {
 
 .form-control {
   display: block;
-  width: 50%;
+  width: 100%;
   padding: 6px 12px;
   font-size: 16px;
   line-height: 1.428571429;
@@ -197,18 +203,17 @@ input, textarea, select {
 .alert {
   margin-bottom: 20px;
   border-radius: 4px;
+  line-height: 40px;
+  padding-left: 15px;
   font-size: small;
 }
 
 .alert-success {
-  line-height: 40px;
-  padding-left: 15px;
   color: #3c763d;
   background-color: #dff0d8;
 }
 
 .alert-danger {
-  padding: 10px 20px;
   background-color: #f2dede;
   color: #a94442;
 }

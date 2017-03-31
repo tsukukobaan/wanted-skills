@@ -1,8 +1,9 @@
 class SkillsController < ApplicationController
   
   before_action :authenticate_user!
-  before_action :set_skill, only: [:show,:edit,:update,:destroy,:liking_users]
   before_action :correct_user, only: [:edit, :update]
+  before_action :set_skill, only: [:show,:edit,:update,:destroy,:liking_users]
+  
   
   def index
     @skills = Skill.all
